@@ -6,3 +6,9 @@
 //
 
 import Foundation
+
+struct Cart: Identifiable {
+    var id = UUID()
+    var productId: UUID
+    var quantity: Int
+}

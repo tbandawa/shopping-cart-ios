@@ -7,14 +7,76 @@
 
 import SwiftUI
 
-struct ItemView: View {
+struct ShopItem: View {
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        ZStack(alignment: .topTrailing) {
+            
+            VStack {
+                
+                Image("cabbage")
+                    .resizable()
+                    .cornerRadius(20)
+                    .frame(width: 170, height: 170)
+                    .scaledToFit()
+                
+                Text("Cabbage")
+                    .font(.system(size: 14, design: .rounded))
+                    .foregroundColor(Color.black)
+                    .fontWeight(.bold)
+                    .padding(.leading, 5)
+                    .padding(.trailing, 5)
+                
+                HStack {
+                    
+                    Text("$0.75")
+                        .font(.system(size: 14, design: .rounded))
+                        .fontWeight(.bold)
+                    
+                    Spacer()
+                    
+                    ZStack {
+                        
+                        Capsule()
+                            .fill(.orange.opacity(0.2))
+                            .frame(width: 25, height: 15)
+                        
+                        HStack {
+                            
+                            Text("4.5")
+                                .font(.system(size: 10, design: .rounded))
+                                .foregroundColor(.orange)
+                                .fontWeight(.medium)
+                            
+                        }
+                        
+                    }
+                }
+                .padding(.top, 2)
+                .padding(.leading, 8)
+                .padding(.trailing, 8)
+                
+            }
+            .frame(width: 185, height: 240)
+            
+            /*Text("+9")
+                .font(.caption2).bold()
+                .foregroundColor(.white)
+                .frame(width: 21, height: 21)
+                .background(Color(hue: 1.0, saturation: 0.89, brightness: 0.835))
+                .cornerRadius(50)
+                .padding(.top, 7)
+                .padding(.trailing, 7)*/
+            
+        }
+        .background(.gray.opacity(0.2))
+        .cornerRadius(5)
+        .padding(.top, 10)
     }
 }
 
-struct ItemView_Previews: PreviewProvider {
+struct ShopItem_Previews: PreviewProvider {
     static var previews: some View {
-        ItemView()
+        ShopItem()
     }
 }

@@ -8,8 +8,36 @@
 import SwiftUI
 
 struct CategoryView: View {
+    init() {
+        let appearance = UINavigationBarAppearance()
+        appearance.shadowColor = .clear
+        UINavigationBar.appearance().standardAppearance = appearance
+        UINavigationBar.appearance().scrollEdgeAppearance = appearance
+    }
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        NavigationView {
+            ScrollView(showsIndicators: false) {
+                
+                
+            }
+            //.navigationBarTitleDisplayMode(.inline)
+            .background(Color.gray.opacity(0.1))
+            .navigationTitle("Vegetables")
+            .toolbar {
+                ToolbarItem(placement: .navigationBarLeading) {
+                    Button {
+                        print("Edit back was tapped")
+                    } label: {
+                        Image(systemName: "chevron.left")
+                            .foregroundColor(.black)
+                    }
+                }
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    CartButton()
+                }
+            }
+        }
     }
 }
 

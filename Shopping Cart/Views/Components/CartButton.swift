@@ -9,7 +9,20 @@ import SwiftUI
 
 struct CartButton: View {
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        ZStack(alignment: .topTrailing) {
+            Image("icon_cart")
+                .resizable()
+                .scaledToFit()
+                .foregroundColor(.black)
+                .frame(width: 40, height: 40)
+            
+            Text("+9")
+                .font(.caption2).bold()
+                .foregroundColor(.white)
+                .frame(width: 19, height: 19)
+                .background(Color(hue: 1.0, saturation: 0.89, brightness: 0.835))
+                .cornerRadius(50)
+        }
     }
 }
 
