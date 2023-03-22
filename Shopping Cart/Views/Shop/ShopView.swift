@@ -168,7 +168,10 @@ struct ShopView: View {
                 // MARK: Products Grid
                 LazyVGrid(columns: columns, spacing: 5) {
                     ForEach(0...14, id: \.self) { index in
-                        ShopItem()
+                        NavigationLink(destination: DetailView()){
+                            ShopItem()
+                        }
+                        
                     }
                 }
                 .padding(.top, 20)
