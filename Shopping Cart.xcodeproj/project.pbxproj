@@ -20,8 +20,6 @@
 		835D5E6F29C4CD6200015F19 /* Cart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 835D5E6E29C4CD6200015F19 /* Cart.swift */; };
 		835D5E7329C4D53C00015F19 /* CartButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 835D5E7229C4D53C00015F19 /* CartButton.swift */; };
 		835D5E7629C51C2000015F19 /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 835D5E7529C51C2000015F19 /* DetailView.swift */; };
-		835D5E7B29C8FD5800015F19 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 835D5E7A29C8FD5800015F19 /* AppDelegate.swift */; };
-		835D5E7D29C9D04D00015F19 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 835D5E7C29C9D04D00015F19 /* SceneDelegate.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -39,8 +37,6 @@
 		835D5E6E29C4CD6200015F19 /* Cart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cart.swift; sourceTree = "<group>"; };
 		835D5E7229C4D53C00015F19 /* CartButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartButton.swift; sourceTree = "<group>"; };
 		835D5E7529C51C2000015F19 /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
-		835D5E7A29C8FD5800015F19 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		835D5E7C29C9D04D00015F19 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,8 +75,6 @@
 				835D5E5529C494E300015F19 /* Views */,
 				835D5E4729C4938900015F19 /* ShoppingCartApp.swift */,
 				835D5E4D29C4938A00015F19 /* Preview Content */,
-				835D5E7A29C8FD5800015F19 /* AppDelegate.swift */,
-				835D5E7C29C9D04D00015F19 /* SceneDelegate.swift */,
 			);
 			path = "Shopping Cart";
 			sourceTree = "<group>";
@@ -242,7 +236,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				835D5E7B29C8FD5800015F19 /* AppDelegate.swift in Sources */,
 				835D5E6D29C4CD1100015F19 /* Category.swift in Sources */,
 				835D5E6529C4C90700015F19 /* ShopItem.swift in Sources */,
 				835D5E6B29C4CBAB00015F19 /* Product.swift in Sources */,
@@ -250,7 +243,6 @@
 				835D5E7329C4D53C00015F19 /* CartButton.swift in Sources */,
 				835D5E5F29C4C8CB00015F19 /* CartView.swift in Sources */,
 				835D5E7629C51C2000015F19 /* DetailView.swift in Sources */,
-				835D5E7D29C9D04D00015F19 /* SceneDelegate.swift in Sources */,
 				835D5E6329C4C8EE00015F19 /* CheckoutView.swift in Sources */,
 				835D5E4A29C4938900015F19 /* ShopView.swift in Sources */,
 				835D5E4829C4938900015F19 /* ShoppingCartApp.swift in Sources */,

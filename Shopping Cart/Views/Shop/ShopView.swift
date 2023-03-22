@@ -177,8 +177,14 @@ struct ShopView: View {
             .navigationBarTitleDisplayMode(.inline)
             .padding([.leading, .trailing])
             .toolbar {
-                CartButton()
+                NavigationLink {
+                    CartView()
+                } label: {
+                    CartButton()
+                }
+                .navigationBarBackButtonHidden(true)
             }
+            .navigationViewStyle(StackNavigationViewStyle())
             
         }
         
