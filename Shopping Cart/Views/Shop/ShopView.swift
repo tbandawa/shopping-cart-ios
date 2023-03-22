@@ -17,6 +17,9 @@ struct ShopView: View {
         UINavigationBar.appearance().scrollEdgeAppearance = appearance
     }
     
+    var columns: [GridItem] =
+                Array(repeating: .init(.flexible(), alignment: .center), count: 2)
+    
     var body: some View {
         NavigationView {
             
@@ -35,96 +38,140 @@ struct ShopView: View {
                     .foregroundColor(Color.gray)
                     .padding(.top, 1)
                 
-                
-                // MARK: Vegetables section
-                VStack {
+                // MARK: Category Row
+                ScrollView(.horizontal, showsIndicators: false) {
                     HStack {
-                        Text("Vegetables")
-                            .font(.system(size: 17, weight: .medium, design: .rounded))
-                            .fontWeight(.bold)
-                        Spacer()
-                        Text("Show All")
-                            .font(.system(size: 16, design: .rounded))
-                            .foregroundColor(.orange)
-                    }
-                    ScrollView(.horizontal, showsIndicators: false) {
-                        LazyHStack {
-                            ForEach(0...5, id: \.self) { index in
-                                ShopItem()
+                                        
+                        Button(action: {}, label: {
+                            HStack {
+                                Image("category_vegetables")
+                                    .resizable()
+                                    .frame(width: 25, height: 25)
+                                    .foregroundColor(.white)
+                                    .clipShape(Circle())
+                                Text("Vegetables")
+                                    .foregroundColor(Color.white)
+                                    .padding(.trailing, 5)
                             }
-                        }
+                        })
+                        .padding(5)
+                        .font(.system(size: 14, weight: .regular, design: .rounded))
+                        .background(.green.opacity(0.5))
+                        .cornerRadius(30)
+                                        
+                        Button(action: {}, label: {
+                            HStack {
+                                Image("category_bakery")
+                                    .resizable()
+                                    .frame(width: 25, height: 25)
+                                    .foregroundColor(.white)
+                                    .clipShape(Circle())
+                                Text("Bakery")
+                                    .foregroundColor(Color.white)
+                                    .padding(.trailing, 5)
+                            }
+                        })
+                        .padding(5)
+                        .font(.system(size: 14, weight: .regular, design: .rounded))
+                        .background(.brown.opacity(0.5))
+                        .cornerRadius(30)
+                                        
+                        Button(action: {}, label: {
+                            HStack {
+                                Image("category_dairy")
+                                    .resizable()
+                                    .frame(width: 25, height: 25)
+                                    .foregroundColor(.white)
+                                    .clipShape(Circle())
+                                Text("Dairy")
+                                    .foregroundColor(Color.white)
+                                    .padding(.trailing, 5)
+                            }
+                        })
+                        .padding(5)
+                        .font(.system(size: 14, weight: .regular, design: .rounded))
+                        .background(.gray.opacity(0.5))
+                        .cornerRadius(30)
+                                        
+                        Button(action: {}, label: {
+                            HStack {
+                                Image("category_liquor")
+                                    .resizable()
+                                    .frame(width: 25, height: 25)
+                                    .foregroundColor(.white)
+                                    .clipShape(Circle())
+                                Text("Liquor")
+                                    .foregroundColor(Color.white)
+                                    .padding(.trailing, 5)
+                            }
+                        })
+                        .padding(5)
+                        .font(.system(size: 14, weight: .regular, design: .rounded))
+                        .background(.yellow.opacity(0.5))
+                        .cornerRadius(30)
+                                        
+                        Button(action: {}, label: {
+                            HStack {
+                                Image("category_meat")
+                                    .resizable()
+                                    .frame(width: 25, height: 25)
+                                    .foregroundColor(.white)
+                                    .clipShape(Circle())
+                                Text("Meat")
+                                    .foregroundColor(Color.white)
+                                    .padding(.trailing, 5)
+                            }
+                        })
+                        .padding(5)
+                        .font(.system(size: 14, weight: .regular, design: .rounded))
+                        .background(.red.opacity(0.5))
+                        .cornerRadius(30)
+                                        
+                        Button(action: {}, label: {
+                            HStack {
+                                Image("category_paultry")
+                                    .resizable()
+                                    .frame(width: 25, height: 25)
+                                    .foregroundColor(.white)
+                                    .clipShape(Circle())
+                                Text("Paultry")
+                                    .foregroundColor(Color.white)
+                                    .padding(.trailing, 5)
+                            }
+                        })
+                        .padding(5)
+                        .font(.system(size: 14, weight: .regular, design: .rounded))
+                        .background(.orange.opacity(0.5))
+                        .cornerRadius(30)
+                                        
+                        Button(action: {}, label: {
+                            HStack {
+                                Image("category_sauces")
+                                    .resizable()
+                                    .frame(width: 25, height: 25)
+                                    .foregroundColor(.white)
+                                    .clipShape(Circle())
+                                Text("Sauces")
+                                    .foregroundColor(Color.white)
+                                    .padding(.trailing, 5)
+                            }
+                        })
+                        .padding(5)
+                        .font(.system(size: 14, weight: .regular, design: .rounded))
+                        .background(.purple.opacity(0.5))
+                        .cornerRadius(30)
+                                        
                     }
                 }
                 .padding(.top, 20)
-                .padding(.bottom, 20)
                 
-                
-                // MARK: Sauces section
-                VStack {
-                    HStack {
-                        Text("Sauces")
-                            .font(.system(size: 17, weight: .medium, design: .rounded))
-                            .fontWeight(.bold)
-                        Spacer()
-                        Text("Show All")
-                            .font(.system(size: 16, design: .rounded))
-                            .foregroundColor(.orange)
-                    }
-                    ScrollView(.horizontal, showsIndicators: false) {
-                        LazyHStack {
-                            ForEach(0...5, id: \.self) { index in
-                                ShopItem()
-                            }
-                        }
+                // MARK: Products Grid
+                LazyVGrid(columns: columns, spacing: 5) {
+                    ForEach(0...14, id: \.self) { index in
+                        ShopItem()
                     }
                 }
                 .padding(.top, 20)
-                .padding(.bottom, 20)
-                
-                
-                // MARK: Liquor section
-                VStack {
-                    HStack {
-                        Text("Liquor")
-                            .font(.system(size: 17, weight: .medium, design: .rounded))
-                            .fontWeight(.bold)
-                        Spacer()
-                        Text("Show All")
-                            .font(.system(size: 16, design: .rounded))
-                            .foregroundColor(.orange)
-                    }
-                    ScrollView(.horizontal, showsIndicators: false) {
-                        LazyHStack {
-                            ForEach(0...5, id: \.self) { index in
-                                ShopItem()
-                            }
-                        }
-                    }
-                }
-                .padding(.top, 20)
-                .padding(.bottom, 20)
-                
-                
-                // MARK: Meat section
-                VStack {
-                    HStack {
-                        Text("Meat")
-                            .font(.system(size: 17, weight: .medium, design: .rounded))
-                            .fontWeight(.bold)
-                        Spacer()
-                        Text("Show All")
-                            .font(.system(size: 16, design: .rounded))
-                            .foregroundColor(.orange)
-                    }
-                    ScrollView(.horizontal, showsIndicators: false) {
-                        LazyHStack {
-                            ForEach(0...5, id: \.self) { index in
-                                ShopItem()
-                            }
-                        }
-                    }                }
-                .padding(.top, 20)
-                .padding(.bottom, 20)
                 
             }
             .navigationBarTitleDisplayMode(.inline)

@@ -14,13 +14,13 @@ struct CartButton: View {
                 .resizable()
                 .scaledToFit()
                 .foregroundColor(.black)
-                .frame(width: 40, height: 40)
+                .frame(width: 35, height: 35)
             
             Text("+9")
                 .font(.caption2).bold()
                 .foregroundColor(.white)
                 .frame(width: 19, height: 19)
-                .background(Color(hue: 1.0, saturation: 0.89, brightness: 0.835))
+                .background(.black)
                 .cornerRadius(50)
         }
     }
