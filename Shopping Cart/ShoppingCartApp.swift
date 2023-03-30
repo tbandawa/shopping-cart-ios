@@ -10,9 +10,12 @@ import SwiftUI
 @main
 struct ShoppingCartApp: App {
     
+    @StateObject var cartStore = CartStore()
+    
     var body: some Scene {
         WindowGroup {
             ShopView()
+                .environmentObject(cartStore)
         }
 
     }

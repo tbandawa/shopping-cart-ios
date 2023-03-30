@@ -16,6 +16,8 @@ struct DetailView: View {
         UINavigationBar.appearance().scrollEdgeAppearance = appearance
     }
     
+    @EnvironmentObject var cartStore: CartStore
+    
     @Environment(\.presentationMode) var presentationMode
     
     var body: some View {
@@ -85,7 +87,7 @@ struct DetailView: View {
                 HStack {
                     
                     Button {
-                        print("Decrease button was tapped")
+                        self.cartStore.itemCount = cartStore.itemCount - 1
                     } label: {
                         Image(systemName: "minus")
                             .foregroundColor(.black)
@@ -94,11 +96,11 @@ struct DetailView: View {
                     .background(Color.gray.opacity(0.2))
                     .cornerRadius(50)
                     
-                    Text("0")
+                    Text("\(self.cartStore.itemCount)")
                         .font(.system(size: 30, design: .rounded))
                     
                     Button {
-                        print("Increase button was tapped")
+                        self.cartStore.itemCount = cartStore.itemCount + 1
                     } label: {
                         Image(systemName: "plus")
                             .foregroundColor(.black)
@@ -161,5 +163,6 @@ struct DetailView: View {
 struct DetailView_Previews: PreviewProvider {
     static var previews: some View {
         DetailView()
+            .environmentObject(CartStore())
     }
 }

@@ -8,6 +8,9 @@
 import SwiftUI
 
 struct CartButton: View {
+    
+    var cartCount: Int
+    
     var body: some View {
         ZStack(alignment: .topTrailing) {
             Image("icon_cart")
@@ -16,7 +19,7 @@ struct CartButton: View {
                 .foregroundColor(.black)
                 .frame(width: 35, height: 35)
             
-            Text("+9")
+            Text("\(cartCount)")
                 .font(.caption2).bold()
                 .foregroundColor(.white)
                 .frame(width: 19, height: 19)
@@ -28,6 +31,6 @@ struct CartButton: View {
 
 struct CartButton_Previews: PreviewProvider {
     static var previews: some View {
-        CartButton()
+        CartButton(cartCount: 0)
     }
 }

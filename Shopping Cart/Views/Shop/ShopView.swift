@@ -9,6 +9,8 @@ import SwiftUI
 
 struct ShopView: View {
     
+    @EnvironmentObject var cartStore: CartStore
+    
     init() {
         let appearance = UINavigationBarAppearance()
         appearance.backgroundColor = .white
@@ -183,7 +185,7 @@ struct ShopView: View {
                 NavigationLink {
                     CartView()
                 } label: {
-                    CartButton()
+                    CartButton(cartCount: cartStore.itemCount)
                 }
                 .navigationBarBackButtonHidden(true)
             }
@@ -198,5 +200,6 @@ struct ShopView: View {
 struct ShopView_Previews: PreviewProvider {
     static var previews: some View {
         ShopView()
+            .environmentObject(CartStore())
     }
 }
