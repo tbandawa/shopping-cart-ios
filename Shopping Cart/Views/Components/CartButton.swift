@@ -31,6 +31,6 @@ struct CartButton: View {
 
 struct CartButton_Previews: PreviewProvider {
     static var previews: some View {
-        CartButton(cartCount: 0)
+        CartButton(cartCount: 55)
     }
 }

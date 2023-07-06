@@ -87,7 +87,7 @@ struct DetailView: View {
                 HStack {
                     
                     Button {
-                        self.cartStore.itemCount = cartStore.itemCount - 1
+                        self.cartStore.decreaseItemCount()
                     } label: {
                         Image(systemName: "minus")
                             .foregroundColor(.black)
@@ -100,7 +100,7 @@ struct DetailView: View {
                         .font(.system(size: 30, design: .rounded))
                     
                     Button {
-                        self.cartStore.itemCount = cartStore.itemCount + 1
+                        self.cartStore.increaseItemCount()
                     } label: {
                         Image(systemName: "plus")
                             .foregroundColor(.black)
