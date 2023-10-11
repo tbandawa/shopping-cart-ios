@@ -6,10 +6,13 @@
 //
 
 import SwiftUI
+import CoreData
 
 struct ShopView: View {
     
-    @EnvironmentObject var cartStore: CartStore
+    @EnvironmentObject private var cartStore: CartStore
+    @Environment(\.managedObjectContext) private var managedObjectContext
+    @FetchRequest(sortDescriptors: []) private var categories: FetchedResults<Category>
     
     init() {
         let appearance = UINavigationBarAppearance()
@@ -190,11 +193,32 @@ struct ShopView: View {
                 .navigationBarBackButtonHidden(true)
             }
             .navigationViewStyle(StackNavigationViewStyle())
-            
+            .onAppear {
+                if (categories.count == 0) {
+                    let initialCategories: KeyValuePairs<String, String> = [
+                        "vegetables": "Green",
+                        "bakery": "Brown",
+                        "dairy": "Gray",
+                        "liquor": "Yellow",
+                        "meat": "Red",
+                        "paultry": "Orange",
+                        "sauces": "Purple"
+                    ]
+                    for cat in initialCategories {
+                        let category = Category(context: self.managedObjectContext)
+                        category.id = UUID()
+                        category.name = cat.key
+                        category.color = cat.value
+                    }
+                    do {
+                        try managedObjectContext.save()
+                    } catch {
+                        print("Failed to save data with error \(error)")
+                    }
+                }
+            }
         }
-        
     }
-    
 }
 
 struct ShopView_Previews: PreviewProvider {

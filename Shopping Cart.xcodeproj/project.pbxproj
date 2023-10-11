@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		834483742AD63CA10077F9A0 /* DataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 834483732AD63CA10077F9A0 /* DataController.swift */; };
-		834483772AD63E340077F9A0 /* Shopping.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 834483752AD63E340077F9A0 /* Shopping.xcdatamodeld */; };
 		835D5E4829C4938900015F19 /* ShoppingCartApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 835D5E4729C4938900015F19 /* ShoppingCartApp.swift */; };
 		835D5E4A29C4938900015F19 /* ShopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 835D5E4929C4938900015F19 /* ShopView.swift */; };
 		835D5E4C29C4938A00015F19 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 835D5E4B29C4938A00015F19 /* Assets.xcassets */; };
@@ -22,11 +21,11 @@
 		835D5E7329C4D53C00015F19 /* CartButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 835D5E7229C4D53C00015F19 /* CartButton.swift */; };
 		835D5E7629C51C2000015F19 /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 835D5E7529C51C2000015F19 /* DetailView.swift */; };
 		83B7EB7129D5D89F00DAB230 /* CartStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83B7EB7029D5D89F00DAB230 /* CartStore.swift */; };
+		83C5F63C2AD657CA00AACA79 /* Shopping.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 83C5F63A2AD657CA00AACA79 /* Shopping.xcdatamodeld */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		834483732AD63CA10077F9A0 /* DataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataController.swift; sourceTree = "<group>"; };
-		834483762AD63E340077F9A0 /* Shopping.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Shopping.xcdatamodel; sourceTree = "<group>"; };
 		835D5E4429C4938900015F19 /* Shopping Cart.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Shopping Cart.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		835D5E4729C4938900015F19 /* ShoppingCartApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingCartApp.swift; sourceTree = "<group>"; };
 		835D5E4929C4938900015F19 /* ShopView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopView.swift; sourceTree = "<group>"; };
@@ -41,6 +40,7 @@
 		835D5E7229C4D53C00015F19 /* CartButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartButton.swift; sourceTree = "<group>"; };
 		835D5E7529C51C2000015F19 /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
 		83B7EB7029D5D89F00DAB230 /* CartStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartStore.swift; sourceTree = "<group>"; };
+		83C5F63B2AD657CA00AACA79 /* Shopping.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Shopping.xcdatamodel; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -141,7 +141,7 @@
 			children = (
 				83B7EB7029D5D89F00DAB230 /* CartStore.swift */,
 				834483732AD63CA10077F9A0 /* DataController.swift */,
-				834483752AD63E340077F9A0 /* Shopping.xcdatamodeld */,
+				83C5F63A2AD657CA00AACA79 /* Shopping.xcdatamodeld */,
 			);
 			path = Store;
 			sourceTree = "<group>";
@@ -244,13 +244,13 @@
 			files = (
 				835D5E6529C4C90700015F19 /* ShopItem.swift in Sources */,
 				835D5E6B29C4CBAB00015F19 /* Product.swift in Sources */,
-				834483772AD63E340077F9A0 /* Shopping.xcdatamodeld in Sources */,
 				835D5E6F29C4CD6200015F19 /* Cart.swift in Sources */,
 				835D5E7329C4D53C00015F19 /* CartButton.swift in Sources */,
 				83B7EB7129D5D89F00DAB230 /* CartStore.swift in Sources */,
 				835D5E5F29C4C8CB00015F19 /* CartView.swift in Sources */,
 				835D5E7629C51C2000015F19 /* DetailView.swift in Sources */,
 				835D5E6329C4C8EE00015F19 /* CheckoutView.swift in Sources */,
+				83C5F63C2AD657CA00AACA79 /* Shopping.xcdatamodeld in Sources */,
 				835D5E4A29C4938900015F19 /* ShopView.swift in Sources */,
 				835D5E4829C4938900015F19 /* ShoppingCartApp.swift in Sources */,
 				834483742AD63CA10077F9A0 /* DataController.swift in Sources */,
@@ -463,12 +463,12 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		834483752AD63E340077F9A0 /* Shopping.xcdatamodeld */ = {
+		83C5F63A2AD657CA00AACA79 /* Shopping.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				834483762AD63E340077F9A0 /* Shopping.xcdatamodel */,
+				83C5F63B2AD657CA00AACA79 /* Shopping.xcdatamodel */,
 			);
-			currentVersion = 834483762AD63E340077F9A0 /* Shopping.xcdatamodel */;
+			currentVersion = 83C5F63B2AD657CA00AACA79 /* Shopping.xcdatamodel */;
 			path = Shopping.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
