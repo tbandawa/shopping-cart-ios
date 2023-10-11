@@ -11,8 +11,8 @@ import CoreData
 struct ShopView: View {
     
     @EnvironmentObject private var cartStore: CartStore
-    @Environment(\.managedObjectContext) private var managedObjectContext
-    @FetchRequest(sortDescriptors: []) private var categories: FetchedResults<Category>
+    //@Environment(\.managedObjectContext) private var managedObjectContext
+    //@FetchRequest(sortDescriptors: []) private var categories: FetchedResults<Category>
     
     init() {
         let appearance = UINavigationBarAppearance()
@@ -47,7 +47,7 @@ struct ShopView: View {
                 ScrollView(.horizontal, showsIndicators: false) {
                     HStack {
                                         
-                        Button(action: {}, label: {
+                        Button(action: { cartStore.addItem() }, label: {
                             HStack {
                                 Image("category_vegetables")
                                     .resizable()
@@ -64,7 +64,7 @@ struct ShopView: View {
                         .background(.green.opacity(0.5))
                         .cornerRadius(30)
                                         
-                        Button(action: {}, label: {
+                        Button(action: { cartStore.getItem() }, label: {
                             HStack {
                                 Image("category_bakery")
                                     .resizable()
@@ -193,7 +193,7 @@ struct ShopView: View {
                 .navigationBarBackButtonHidden(true)
             }
             .navigationViewStyle(StackNavigationViewStyle())
-            .onAppear {
+            /*.onAppear {
                 if (categories.count == 0) {
                     let initialCategories: KeyValuePairs<String, String> = [
                         "vegetables": "Green",
@@ -216,7 +216,7 @@ struct ShopView: View {
                         print("Failed to save data with error \(error)")
                     }
                 }
-            }
+            }*/
         }
     }
 }

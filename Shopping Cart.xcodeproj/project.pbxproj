@@ -22,6 +22,7 @@
 		835D5E7629C51C2000015F19 /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 835D5E7529C51C2000015F19 /* DetailView.swift */; };
 		83B7EB7129D5D89F00DAB230 /* CartStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83B7EB7029D5D89F00DAB230 /* CartStore.swift */; };
 		83C5F63C2AD657CA00AACA79 /* Shopping.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 83C5F63A2AD657CA00AACA79 /* Shopping.xcdatamodeld */; };
+		83C5F65D2AD69C1A00AACA79 /* PersistenceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83C5F65C2AD69C1A00AACA79 /* PersistenceController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -41,6 +42,7 @@
 		835D5E7529C51C2000015F19 /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
 		83B7EB7029D5D89F00DAB230 /* CartStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartStore.swift; sourceTree = "<group>"; };
 		83C5F63B2AD657CA00AACA79 /* Shopping.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Shopping.xcdatamodel; sourceTree = "<group>"; };
+		83C5F65C2AD69C1A00AACA79 /* PersistenceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -142,6 +144,7 @@
 				83B7EB7029D5D89F00DAB230 /* CartStore.swift */,
 				834483732AD63CA10077F9A0 /* DataController.swift */,
 				83C5F63A2AD657CA00AACA79 /* Shopping.xcdatamodeld */,
+				83C5F65C2AD69C1A00AACA79 /* PersistenceController.swift */,
 			);
 			path = Store;
 			sourceTree = "<group>";
@@ -243,6 +246,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				835D5E6529C4C90700015F19 /* ShopItem.swift in Sources */,
+				83C5F65D2AD69C1A00AACA79 /* PersistenceController.swift in Sources */,
 				835D5E6B29C4CBAB00015F19 /* Product.swift in Sources */,
 				835D5E6F29C4CD6200015F19 /* Cart.swift in Sources */,
 				835D5E7329C4D53C00015F19 /* CartButton.swift in Sources */,
