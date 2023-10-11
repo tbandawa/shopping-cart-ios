@@ -11,12 +11,13 @@ import SwiftUI
 struct ShoppingCartApp: App {
     
     @StateObject var cartStore = CartStore()
+    @StateObject var dataController = DataController()
     
     var body: some Scene {
         WindowGroup {
             ShopView()
                 .environmentObject(cartStore)
+                .environment(\.managedObjectContext, dataController.container.viewContext)
         }
-
     }
 }

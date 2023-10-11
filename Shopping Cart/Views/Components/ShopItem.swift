@@ -59,14 +59,14 @@ struct ShopItem: View {
             }
             .frame(width: 185, height: 240)
             
-            /*Text("+9")
+            Text("+9")
                 .font(.caption2).bold()
                 .foregroundColor(.white)
                 .frame(width: 21, height: 21)
                 .background(Color(hue: 1.0, saturation: 0.89, brightness: 0.835))
                 .cornerRadius(50)
                 .padding(.top, 7)
-                .padding(.trailing, 7)*/
+                .padding(.trailing, 7)
             
         }
         .background(.gray.opacity(0.2))
