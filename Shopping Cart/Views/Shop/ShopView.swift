@@ -44,6 +44,25 @@ struct ShopView: View {
                 // MARK: Category Row
                 ScrollView(.horizontal, showsIndicators: false) {
                     HStack {
+                        
+                        Button(
+                            action: {
+                                cartStore.fetchProducts(category: nil)
+                            },
+                            label: {
+                                HStack {
+                                    Text("All Products")
+                                        .frame(height: 26)
+                                        .foregroundColor(Color.white)
+                                        .padding(.trailing, 5)
+                                }
+                            }
+                        )
+                        .padding(5)
+                        .font(.system(size: 14, weight: .regular, design: .rounded))
+                        .background(.black.opacity(0.5))
+                        .cornerRadius(30)
+                        
                         ForEach(cartStore.categories, id: \.self) { category in
                             Button(
                                 action: {
