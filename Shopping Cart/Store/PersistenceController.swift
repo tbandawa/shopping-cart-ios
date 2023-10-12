@@ -97,7 +97,7 @@ struct PersistenceController {
                 ["image_product_avocado", "Avocado", "Avocado x2 per pack or 2kg 6 kg", "vegetables", 3.5, 15.50],
                 ["image_product_ayam_sauce_soja", "Ayam Sauce Soja", "Asian Satay Sauce 150Ml", "sauces", 3.5, 4.95],
                 ["image_product_baguette_bread", "Baguette Bread", "Artisan French Baguette 400 g", "bakery", 3.5, 8.60],
-                ["image_product_banana", "Bananas", "Bananas 2kg or 5kg 2 kg", "bakery", 3.5, 2.99],
+                ["image_product_banana", "Bananas", "Bananas 2kg or 5kg 2 kg", "vegetables", 3.5, 2.99],
                 ["image_product_bear_brand_powdered_milk", "Bear Brand Powdered Milk", "Loya Full Cream Milk Powder 350G", "dairy", 3.5, 8.60],
                 ["image_product_beef", "Beef", "Beef Stew (Bone In)", "meat", 3.5, 10.90],
                 ["image_product_best_milk", "Best Milk", "Great Value UHT Milk Full Cream 1, L x 6", "dairy", 3.5, 1.50],

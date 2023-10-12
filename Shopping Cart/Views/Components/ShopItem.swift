@@ -9,18 +9,23 @@ import SwiftUI
 
 struct ShopItem: View {
     
+    var title: String
+    var image: String
+    var rating: Double
+    var price: Double
+    
     var body: some View {
         ZStack(alignment: .topTrailing) {
             
             VStack {
                 
-                Image("image_product_cabbage")
+                Image(image)
                     .resizable()
                     .cornerRadius(20)
                     .frame(width: 170, height: 170)
                     .scaledToFit()
                 
-                Text("Cabbage")
+                Text(title.capitalized)
                     .font(.system(size: 14, design: .rounded))
                     .foregroundColor(Color.black)
                     .fontWeight(.bold)
@@ -29,7 +34,7 @@ struct ShopItem: View {
                 
                 HStack {
                     
-                    Text("$0.75")
+                    Text("$\(price)")
                         .font(.system(size: 14, design: .rounded))
                         .fontWeight(.bold)
                     
@@ -43,7 +48,7 @@ struct ShopItem: View {
                         
                         HStack {
                             
-                            Text("4.5")
+                            Text("\(rating)")
                                 .font(.system(size: 10, design: .rounded))
                                 .foregroundColor(.orange)
                                 .fontWeight(.medium)
@@ -77,6 +82,6 @@ struct ShopItem: View {
 
 struct ShopItem_Previews: PreviewProvider {
     static var previews: some View {
-        ShopItem()
+        ShopItem(title: "Cabbage", image: "image_product_cabbage", rating: 4.5, price: 1.00)
     }
 }

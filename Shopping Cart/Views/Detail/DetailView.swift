@@ -9,12 +9,29 @@ import SwiftUI
 
 struct DetailView: View {
     
-    init() {
+    init(
+        title: String,
+        about: String,
+        image: String,
+        rating: Double,
+        price: Double)
+    {
+        self.title = title
+        self.about = about
+        self.image = image
+        self.rating = rating
+        self.price = price
         let appearance = UINavigationBarAppearance()
         appearance.shadowColor = .clear
         UINavigationBar.appearance().standardAppearance = appearance
         UINavigationBar.appearance().scrollEdgeAppearance = appearance
     }
+    
+    var title: String
+    var about: String
+    var image: String
+    var rating: Double
+    var price: Double
     
     @EnvironmentObject var cartStore: CartStore
     
@@ -26,7 +43,7 @@ struct DetailView: View {
             VStack {
                 
                 // MARK: Product Image
-                Image("image_product_cabbage")
+                Image(image)
                     .resizable()
                     .scaledToFit()
                     .frame(width: 300, height: 300)
@@ -34,7 +51,7 @@ struct DetailView: View {
                 // MARK: Product Details
                 HStack {
                     
-                    Text("Cabbage")
+                    Text(title.capitalized)
                         .font(.system(size: 25, design: .rounded))
                         .foregroundColor(Color.black)
                         .fontWeight(.bold)
@@ -53,7 +70,7 @@ struct DetailView: View {
                                 .foregroundColor(.orange)
                                 .frame(width: 15, height: 15)
         
-                            Text("4.5")
+                            Text("\(rating)")
                                 .font(.system(size: 16, design: .rounded))
                                 .foregroundColor(.orange)
                                 .fontWeight(.medium)
@@ -65,7 +82,7 @@ struct DetailView: View {
                 }
                 .padding([.leading, .trailing])
                 
-                Text("Brassica oleracea var. capitata")
+                Text(about)
                     .font(.system(size: 20, design: .rounded))
                     .foregroundColor(Color.black)
                     .fontWeight(.medium)
@@ -120,7 +137,7 @@ struct DetailView: View {
                 
                 Spacer()
                 
-                Text("$0.75")
+                Text("$\(price)")
                     .font(.system(size: 35, design: .rounded))
                     .foregroundColor(Color.black)
                     .fontWeight(.bold)
@@ -162,7 +179,12 @@ struct DetailView: View {
 
 struct DetailView_Previews: PreviewProvider {
     static var previews: some View {
-        DetailView()
-            .environmentObject(CartStore())
+        DetailView(
+            title: "cabbage",
+            about: "Cabbage is popular in January",
+            image: "image_product_cabbage",
+            rating: 4.5,
+            price: 1.0
+        ).environmentObject(CartStore())
     }
 }

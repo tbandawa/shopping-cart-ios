@@ -45,18 +45,23 @@ struct ShopView: View {
                 ScrollView(.horizontal, showsIndicators: false) {
                     HStack {
                         ForEach(cartStore.categories, id: \.self) { category in
-                            Button(action: { print(category.name!) }, label: {
-                                HStack {
-                                    Image("image_category_\(category.name!)")
-                                        .resizable()
-                                        .frame(width: 25, height: 25)
-                                        .foregroundColor(.white)
-                                        .clipShape(Circle())
-                                    Text("\(category.name!.capitalized)")
-                                        .foregroundColor(Color.white)
-                                        .padding(.trailing, 5)
+                            Button(
+                                action: {
+                                    cartStore.fetchProducts(category: category.name!)
+                                },
+                                label: {
+                                    HStack {
+                                        Image("image_category_\(category.name!)")
+                                            .resizable()
+                                            .frame(width: 25, height: 25)
+                                            .foregroundColor(.white)
+                                            .clipShape(Circle())
+                                        Text("\(category.name!.capitalized)")
+                                            .foregroundColor(Color.white)
+                                            .padding(.trailing, 5)
+                                    }
                                 }
-                            })
+                            )
                             .padding(5)
                             .font(.system(size: 14, weight: .regular, design: .rounded))
                             .background(Color("\(category.color!)").opacity(0.5))
@@ -68,11 +73,14 @@ struct ShopView: View {
                 
                 // MARK: Products Grid
                 LazyVGrid(columns: columns, spacing: 5) {
-                    ForEach(0...14, id: \.self) { index in
+                    ForEach(cartStore.products, id: \.self) { product in
+                        ShopItem(title: product.name!, image: product.image!, rating: product.rating, price: product.price)
+                    }
+                    /*ForEach(0...14, id: \.self) { index in
                         NavigationLink(destination: DetailView()){
                             ShopItem()
                         }
-                    }
+                    }*/
                 }
                 .padding(.top, 20)
                 
