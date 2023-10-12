@@ -93,13 +93,18 @@ struct ShopView: View {
                 // MARK: Products Grid
                 LazyVGrid(columns: columns, spacing: 5) {
                     ForEach(cartStore.products, id: \.self) { product in
-                        ShopItem(title: product.name!, image: product.image!, rating: product.rating, price: product.price)
-                    }
-                    /*ForEach(0...14, id: \.self) { index in
-                        NavigationLink(destination: DetailView()){
-                            ShopItem()
+                        NavigationLink(
+                            destination: DetailView(
+                                title: product.name!,
+                                about: product.about!,
+                                image: product.image!,
+                                rating: product.rating,
+                                price: product.price
+                            )
+                        ){
+                            ShopItem(title: product.name!, image: product.image!, rating: product.rating, price: product.price)
                         }
-                    }*/
+                    }
                 }
                 .padding(.top, 20)
                 

@@ -14,8 +14,8 @@ struct DetailView: View {
         about: String,
         image: String,
         rating: Double,
-        price: Double)
-    {
+        price: Double
+    ) {
         self.title = title
         self.about = about
         self.image = image
