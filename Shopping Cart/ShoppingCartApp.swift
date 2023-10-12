@@ -17,7 +17,6 @@ struct ShoppingCartApp: App {
         WindowGroup {
             ShopView()
                 .environmentObject(cartStore)
-                //.environment(\.managedObjectContext, dataController.container.viewContext)
         }
     }
 }

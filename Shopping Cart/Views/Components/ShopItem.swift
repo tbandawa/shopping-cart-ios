@@ -14,7 +14,7 @@ struct ShopItem: View {
             
             VStack {
                 
-                Image("cabbage")
+                Image("image_product_cabbage")
                     .resizable()
                     .cornerRadius(20)
                     .frame(width: 170, height: 170)

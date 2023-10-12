@@ -26,7 +26,7 @@ struct DetailView: View {
             VStack {
                 
                 // MARK: Product Image
-                Image("cabbage")
+                Image("image_product_cabbage")
                     .resizable()
                     .scaledToFit()
                     .frame(width: 300, height: 300)

@@ -45,7 +45,7 @@ struct ShopView: View {
                 ScrollView(.horizontal, showsIndicators: false) {
                     HStack {
                         ForEach(cartStore.categories, id: \.self) { category in
-                            Button(action: {  }, label: {
+                            Button(action: { print(category.name!) }, label: {
                                 HStack {
                                     Image("image_category_\(category.name!)")
                                         .resizable()
