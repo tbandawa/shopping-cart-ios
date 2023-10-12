@@ -70,7 +70,7 @@ struct DetailView: View {
                                 .foregroundColor(.orange)
                                 .frame(width: 15, height: 15)
         
-                            Text("\(rating)")
+                            Text("\(String(format: "%.1f", rating))")
                                 .font(.system(size: 16, design: .rounded))
                                 .foregroundColor(.orange)
                                 .fontWeight(.medium)
@@ -137,7 +137,7 @@ struct DetailView: View {
                 
                 Spacer()
                 
-                Text("$\(price)")
+                Text("$\(String(format: "%.2f", price))")
                     .font(.system(size: 35, design: .rounded))
                     .foregroundColor(Color.black)
                     .fontWeight(.bold)

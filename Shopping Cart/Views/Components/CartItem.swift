@@ -11,7 +11,7 @@ struct CartItem: View {
     var body: some View {
         HStack {
             
-            Image("cabbage")
+            Image("image_product_cabbage")
                 .resizable()
                 .scaledToFit()
                 .frame(width: 80, height: 80)
@@ -69,7 +69,7 @@ struct CartItem: View {
                     
                     Spacer()
                     
-                    Text("$0.75")
+                    Text("$\(String(format: "%.2f", 0.75))")
                         .font(.system(size: 14, design: .rounded))
                         .fontWeight(.bold)
                 }

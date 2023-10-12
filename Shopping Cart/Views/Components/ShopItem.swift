@@ -34,7 +34,7 @@ struct ShopItem: View {
                 
                 HStack {
                     
-                    Text("$\(price)")
+                    Text("$\(String(format: "%.2f", price))")
                         .font(.system(size: 14, design: .rounded))
                         .fontWeight(.bold)
                     
@@ -48,7 +48,7 @@ struct ShopItem: View {
                         
                         HStack {
                             
-                            Text("\(rating)")
+                            Text("\(String(format: "%.1f", rating))")
                                 .font(.system(size: 10, design: .rounded))
                                 .foregroundColor(.orange)
                                 .fontWeight(.medium)
