@@ -28,6 +28,7 @@ struct PersistenceController {
             }
         }
         container.viewContext.automaticallyMergesChangesFromParent = true
+        loadCategories()
     }
     
     func fetchCategories() -> [Category] {
@@ -40,12 +41,6 @@ struct PersistenceController {
         }
     }
     
-    private func loadCategories() {
-        if (fetchCategories().isEmpty) {
-            
-        }
-    }
-    
     func addCategory(name: String, color: String) {
         let category = Category(context: self.viewContext)
         category.id = UUID()
@@ -55,6 +50,31 @@ struct PersistenceController {
             try self.viewContext.save()
         } catch {
             print("Failed to save data with error \(error)")
+        }
+    }
+    
+    private func loadCategories() {
+        if (fetchCategories().isEmpty) {
+            let initialCategories: KeyValuePairs<String, String> = [
+                "vegetables": "color_green",
+                "bakery": "color_brown",
+                "dairy": "color_gray",
+                "liquor": "color_yellow",
+                "meat": "color_red",
+                "paultry": "color_orange",
+                "sauces": "color_purple"
+            ]
+            for cat in initialCategories {
+                let category = Category(context: self.viewContext)
+                category.id = UUID()
+                category.name = cat.key
+                category.color = cat.value
+            }
+            do {
+                try self.viewContext.save()
+            } catch {
+                print("Failed to save Categories with error \(error)")
+            }
         }
     }
 }

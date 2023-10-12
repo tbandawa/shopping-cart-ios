@@ -11,12 +11,12 @@ class CartStore: ObservableObject {
     
     private let persistenceController = PersistenceController()
     
-    init() {
-        let results = persistenceController.fetchCategories()
-        print("Category results = \(results.count)")
-    }
-    
+    @Published var categories: [Category] = []
     @Published var itemCount = 0
+    
+    init() {
+        categories = persistenceController.fetchCategories()
+    }
     
     func increaseItemCount() {
         self.itemCount = itemCount + 1
@@ -29,7 +29,7 @@ class CartStore: ObservableObject {
     }
     
     func addItem() {
-        persistenceController.addCategory(name: "naem", color: "color")
+        //persistenceController.addCategory(name: "naem", color: "color")
     }
     
     func getItem() {
