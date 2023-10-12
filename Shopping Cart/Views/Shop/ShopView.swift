@@ -11,8 +11,6 @@ import CoreData
 struct ShopView: View {
     
     @EnvironmentObject private var cartStore: CartStore
-    //@Environment(\.managedObjectContext) private var managedObjectContext
-    //@FetchRequest(sortDescriptors: []) private var categories: FetchedResults<Category>
     
     init() {
         let appearance = UINavigationBarAppearance()

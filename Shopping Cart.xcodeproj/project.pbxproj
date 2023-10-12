@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		834483742AD63CA10077F9A0 /* DataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 834483732AD63CA10077F9A0 /* DataController.swift */; };
 		835D5E4829C4938900015F19 /* ShoppingCartApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 835D5E4729C4938900015F19 /* ShoppingCartApp.swift */; };
 		835D5E4A29C4938900015F19 /* ShopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 835D5E4929C4938900015F19 /* ShopView.swift */; };
 		835D5E4C29C4938A00015F19 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 835D5E4B29C4938A00015F19 /* Assets.xcassets */; };
@@ -26,7 +25,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		834483732AD63CA10077F9A0 /* DataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataController.swift; sourceTree = "<group>"; };
 		835D5E4429C4938900015F19 /* Shopping Cart.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Shopping Cart.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		835D5E4729C4938900015F19 /* ShoppingCartApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingCartApp.swift; sourceTree = "<group>"; };
 		835D5E4929C4938900015F19 /* ShopView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopView.swift; sourceTree = "<group>"; };
@@ -142,7 +140,6 @@
 			isa = PBXGroup;
 			children = (
 				83B7EB7029D5D89F00DAB230 /* CartStore.swift */,
-				834483732AD63CA10077F9A0 /* DataController.swift */,
 				83C5F63A2AD657CA00AACA79 /* Shopping.xcdatamodeld */,
 				83C5F65C2AD69C1A00AACA79 /* PersistenceController.swift */,
 			);
@@ -257,7 +254,6 @@
 				83C5F63C2AD657CA00AACA79 /* Shopping.xcdatamodeld in Sources */,
 				835D5E4A29C4938900015F19 /* ShopView.swift in Sources */,
 				835D5E4829C4938900015F19 /* ShoppingCartApp.swift in Sources */,
-				834483742AD63CA10077F9A0 /* DataController.swift in Sources */,
 				835D5E6729C4C92E00015F19 /* CartItem.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -53,6 +53,7 @@ struct PersistenceController {
         }
     }
     
+    // Initialise Categories
     private func loadCategories() {
         if (fetchCategories().isEmpty) {
             let initialCategories: KeyValuePairs<String, String> = [
