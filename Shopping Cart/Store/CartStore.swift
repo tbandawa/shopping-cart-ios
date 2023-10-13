@@ -13,6 +13,7 @@ class CartStore: ObservableObject {
     
     @Published var categories: [Category] = []
     @Published var products: [Product] = []
+    @Published var cartProducts: [Product] = []
     @Published var itemCount = 0
     
     init() {
@@ -32,6 +33,10 @@ class CartStore: ObservableObject {
     
     func fetchProducts(category: String? = nil) {
         products = persistenceController.fetchProducts(category: category)
+    }
+    
+    func fetchCartProducts() {
+        cartProducts = persistenceController.fetchCart()
     }
     
     func addToCart(product: UUID, quantity: Int16) {

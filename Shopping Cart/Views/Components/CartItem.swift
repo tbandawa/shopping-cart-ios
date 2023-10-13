@@ -8,10 +8,18 @@
 import SwiftUI
 
 struct CartItem: View {
+    
+    var productId: UUID
+    var title: String
+    var about: String
+    var image: String
+    var price: Double
+    var quantity: Int
+    
     var body: some View {
         HStack {
             
-            Image("image_product_cabbage")
+            Image(image)
                 .resizable()
                 .scaledToFit()
                 .frame(width: 80, height: 80)
@@ -20,7 +28,7 @@ struct CartItem: View {
                 
                 HStack {
                     
-                    Text("Cabbage")
+                    Text(title)
                         .font(.system(size: 14, design: .rounded))
                         .foregroundColor(Color.black)
                         .fontWeight(.bold)
@@ -38,7 +46,7 @@ struct CartItem: View {
                     
                 }
                 
-                Text("Brassica oleracea var. capitata")
+                Text(about)
                     .font(.system(size: 12, design: .rounded))
                     .foregroundColor(Color.gray)
                 
@@ -69,7 +77,7 @@ struct CartItem: View {
                     
                     Spacer()
                     
-                    Text("$\(String(format: "%.2f", 0.75))")
+                    Text("$\(String(format: "%.2f", price))")
                         .font(.system(size: 14, design: .rounded))
                         .fontWeight(.bold)
                 }
@@ -84,6 +92,13 @@ struct CartItem: View {
 
 struct CartItem_Previews: PreviewProvider {
     static var previews: some View {
-        CartItem()
+        CartItem(
+            productId: UUID(),
+            title: "Cabbage",
+            about: "Cabbage popular in January",
+            image: "image_product_cabbage",
+            price: 10.00,
+            quantity: 5
+        )
     }
 }

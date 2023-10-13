@@ -18,6 +18,7 @@ struct CartView: View {
     }
     
     @Environment(\.presentationMode) var presentationMode
+    @EnvironmentObject var cartStore: CartStore
     
     var body: some View {
         ZStack {
@@ -27,14 +28,21 @@ struct CartView: View {
                 
                 // MARK: Cart Items
                 ScrollView {
-                    CartItem()
-                    CartItem()
-                    CartItem()
-                    CartItem()
-                    CartItem()
-                    CartItem()
+                    ForEach(cartStore.cartProducts, id: \.self) { product in
+                        CartItem(
+                            productId: product.id!,
+                            title: product.name!,
+                            about: product.about!,
+                            image: product.image!,
+                            price: product.price,
+                            quantity: 5
+                        )
+                    }
                 }
                 .background(.white)
+                .onAppear{
+                    cartStore.fetchCartProducts()
+                }
                 
                 // MARK: Order Summary
                 VStack(alignment: .leading) {
@@ -107,5 +115,6 @@ struct CartView: View {
 struct CartView_Previews: PreviewProvider {
     static var previews: some View {
         CartView()
+            .environmentObject(CartStore())
     }
 }

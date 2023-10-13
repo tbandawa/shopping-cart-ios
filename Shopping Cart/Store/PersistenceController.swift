@@ -47,7 +47,7 @@ struct PersistenceController {
         do {
             cartItems = try self.viewContext.fetch(cartRequest)
         } catch {
-            print("Error fetching cart: \(error.localizedDescription)")
+            print("Error fetching cartItems: \(error.localizedDescription)")
         }
         
         let productIds = cartItems.map{ item in
@@ -60,7 +60,7 @@ struct PersistenceController {
         do {
             cartProducts = try self.viewContext.fetch(productsRequest)
         } catch {
-            print("Error fetching cart: \(error.localizedDescription)")
+            print("Error fetching cartProducts: \(error.localizedDescription)")
         }
         
         return cartProducts
@@ -101,8 +101,6 @@ struct PersistenceController {
             cart.quantity = quantity
             saveContext()
         }
-        
-        fetchCart()
     }
     
     // Initialise Data
