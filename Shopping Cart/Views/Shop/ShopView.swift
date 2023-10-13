@@ -95,6 +95,7 @@ struct ShopView: View {
                     ForEach(cartStore.products, id: \.self) { product in
                         NavigationLink(
                             destination: DetailView(
+                                productId: product.id!,
                                 title: product.name!,
                                 about: product.about!,
                                 image: product.image!,

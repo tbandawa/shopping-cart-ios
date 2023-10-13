@@ -41,6 +41,16 @@ struct PersistenceController {
         }
     }
     
+    func fetchCart() -> [Cart] {
+        let request: NSFetchRequest<Cart> = Cart.fetchRequest()
+        do {
+            return try self.viewContext.fetch(request)
+        } catch {
+            print("Error fetching cart: \(error.localizedDescription)")
+            return []
+        }
+    }
+    
     func fetchProducts(category: String?) -> [Product] {
         let request: NSFetchRequest<Product> = Product.fetchRequest()
         if let category = category {
@@ -54,15 +64,27 @@ struct PersistenceController {
         }
     }
     
-    func addCategory(name: String, color: String) {
-        let category = Category(context: self.viewContext)
-        category.id = UUID()
-        category.name = name
-        category.color = color
+    func addToCart(product: UUID, quantity: Int16) {
+        
+        var savedProducts: [Cart] = []
+        
+        let request: NSFetchRequest<Cart> = Cart.fetchRequest()
+        request.predicate = NSPredicate(format: "product = '\(product)'")
         do {
-            try self.viewContext.save()
+            savedProducts = try self.viewContext.fetch(request)
+            if (!savedProducts.isEmpty) {
+                savedProducts.first?.quantity =  quantity
+                saveContext()
+            }
         } catch {
-            print("Failed to save data with error \(error)")
+            print("Error fetching categories: \(error.localizedDescription)")
+        }
+        
+        if (savedProducts.isEmpty) {
+            let cart = Cart(context: self.viewContext)
+            cart.product = product
+            cart.quantity = quantity
+            saveContext()
         }
     }
     
@@ -84,11 +106,7 @@ struct PersistenceController {
                 category.name = cat.key
                 category.color = cat.value
             }
-            do {
-                try self.viewContext.save()
-            } catch {
-                print("Failed to save Categories with error \(error)")
-            }
+            saveContext()
         }
         if (fetchProducts(category: nil).isEmpty) {
             let initialProducts: [[Any]] = [
@@ -139,11 +157,15 @@ struct PersistenceController {
                 product.rating = prod[4] as! Double
                 product.price = prod[5] as! Double
             }
-            do {
-                try self.viewContext.save()
-            } catch {
-                print("Failed to save Products with error \(error)")
-            }
+            saveContext()
+        }
+    }
+    
+    private func saveContext() {
+        do {
+            try self.viewContext.save()
+        } catch {
+            print("Failed to save data with error \(error)")
         }
     }
 }

@@ -33,4 +33,8 @@ class CartStore: ObservableObject {
     func fetchProducts(category: String? = nil) {
         products = persistenceController.fetchProducts(category: category)
     }
+    
+    func addToCart(product: UUID, quantity: Int16) {
+        persistenceController.addToCart(product: product, quantity: quantity)
+    }
 }

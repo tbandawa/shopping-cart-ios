@@ -10,12 +10,14 @@ import SwiftUI
 struct DetailView: View {
     
     init(
+        productId: UUID,
         title: String,
         about: String,
         image: String,
         rating: Double,
         price: Double
     ) {
+        self.productId = productId
         self.title = title
         self.about = about
         self.image = image
@@ -27,11 +29,14 @@ struct DetailView: View {
         UINavigationBar.appearance().scrollEdgeAppearance = appearance
     }
     
+    var productId: UUID
     var title: String
     var about: String
     var image: String
     var rating: Double
     var price: Double
+    
+    @State var itemCount = 1
     
     @EnvironmentObject var cartStore: CartStore
     
@@ -104,7 +109,9 @@ struct DetailView: View {
                 HStack {
                     
                     Button {
-                        self.cartStore.decreaseItemCount()
+                        if (itemCount > 1){
+                            itemCount-=1
+                        }
                     } label: {
                         Image(systemName: "minus")
                             .foregroundColor(.black)
@@ -113,11 +120,13 @@ struct DetailView: View {
                     .background(Color.gray.opacity(0.2))
                     .cornerRadius(50)
                     
-                    Text("\(self.cartStore.itemCount)")
+                    Text("\(self.itemCount)")
                         .font(.system(size: 30, design: .rounded))
                     
                     Button {
-                        self.cartStore.increaseItemCount()
+                        if (itemCount < 10){
+                            itemCount+=1
+                        }
                     } label: {
                         Image(systemName: "plus")
                             .foregroundColor(.black)
@@ -145,7 +154,7 @@ struct DetailView: View {
                 Spacer()
                 
                 Button("Add To Cart") {
-                    print("Add button was tapped")
+                    cartStore.addToCart(product: productId, quantity: Int16(itemCount))
                 }
                 .font(.system(size: 16, weight: .bold, design: .rounded))
                 .padding(10)
@@ -180,6 +189,7 @@ struct DetailView: View {
 struct DetailView_Previews: PreviewProvider {
     static var previews: some View {
         DetailView(
+            productId: UUID(),
             title: "cabbage",
             about: "Cabbage is popular in January",
             image: "image_product_cabbage",
