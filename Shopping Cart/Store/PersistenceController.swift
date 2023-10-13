@@ -41,14 +41,29 @@ struct PersistenceController {
         }
     }
     
-    func fetchCart() -> [Cart] {
-        let request: NSFetchRequest<Cart> = Cart.fetchRequest()
+    func fetchCart() -> [Product] {
+        var cartItems: [Cart] = []
+        let cartRequest: NSFetchRequest<Cart> = Cart.fetchRequest()
         do {
-            return try self.viewContext.fetch(request)
+            cartItems = try self.viewContext.fetch(cartRequest)
         } catch {
             print("Error fetching cart: \(error.localizedDescription)")
-            return []
         }
+        
+        let productIds = cartItems.map{ item in
+            return item.product!
+        }
+        
+        var cartProducts: [Product] = []
+        let productsRequest: NSFetchRequest<Product> = Product.fetchRequest()
+        productsRequest.predicate = NSPredicate(format: "id IN %@", productIds)
+        do {
+            cartProducts = try self.viewContext.fetch(productsRequest)
+        } catch {
+            print("Error fetching cart: \(error.localizedDescription)")
+        }
+        
+        return cartProducts
     }
     
     func fetchProducts(category: String?) -> [Product] {
@@ -86,6 +101,8 @@ struct PersistenceController {
             cart.quantity = quantity
             saveContext()
         }
+        
+        fetchCart()
     }
     
     // Initialise Data

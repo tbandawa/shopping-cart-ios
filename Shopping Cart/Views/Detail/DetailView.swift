@@ -120,7 +120,7 @@ struct DetailView: View {
                     .background(Color.gray.opacity(0.2))
                     .cornerRadius(50)
                     
-                    Text("\(self.itemCount)")
+                    Text("\(itemCount)")
                         .font(.system(size: 30, design: .rounded))
                     
                     Button {
