@@ -58,7 +58,7 @@ struct CartItem: View {
                     
                     Spacer()
                     
-                    Text("$\(String(format: "%.2f", price))")
+                    Text("$\(String(format: "%.2f", price * Double(quantity)))")
                         .font(.system(size: 14, design: .rounded))
                         .fontWeight(.bold)
                 }
