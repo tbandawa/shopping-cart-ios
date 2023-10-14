@@ -75,6 +75,7 @@ struct PersistenceController {
         return cartProducts.map { addQuantity(product: $0, cart: fetchCart()) }
     }
     
+    // Add product to cart
     func addToCart(product: UUID, quantity: Int16) {
         
         var savedProducts: [Cart] = []
