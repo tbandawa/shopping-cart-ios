@@ -7,9 +7,10 @@
 
 import SwiftUI
 
-struct CheckoutView: View {
+struct CheckoutSuccess: View {
     
-    @Binding var show: Bool
+    var show: Bool
+    var dismissPopup: () -> Void
 
     var body: some View {
         ZStack {
@@ -39,7 +40,7 @@ struct CheckoutView: View {
                         .foregroundColor(Color.gray)
                     
                     Button("Continue Shopping") {
-                        
+                        dismissPopup()
                     }
                     .font(.system(size: 14, weight: .bold, design: .rounded))
                     .padding(10)
@@ -58,8 +59,8 @@ struct CheckoutView: View {
     }
 }
 
-struct CheckoutView_Previews: PreviewProvider {
+struct CheckoutSuccess_Previews: PreviewProvider {
     static var previews: some View {
-        CheckoutView(show: .constant(true))
+        CheckoutSuccess(show: true, dismissPopup: {})
     }
 }

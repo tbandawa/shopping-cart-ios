@@ -19,6 +19,7 @@ struct CartView: View {
     
     @Environment(\.presentationMode) var presentationMode
     @EnvironmentObject var cartStore: CartStore
+    @State private var showPopUp: Bool = false
     
     var body: some View {
         ZStack {
@@ -80,7 +81,7 @@ struct CartView: View {
                     .padding(.bottom, 10)
                     
                     Button("Checkout") {
-                        print("Checkout button was tapped")
+                        cartStore.showPopUp = true
                     }
                     .font(.system(size: 16, weight: .bold, design: .rounded))
                     .padding(10)
@@ -94,9 +95,7 @@ struct CartView: View {
                 }
                 .padding(.top, 5)
                 .padding([.leading, .trailing, .bottom])
-                
             }
-            
         }
         .navigationBarBackButtonHidden(true)
         .navigationBarTitleDisplayMode(.inline)

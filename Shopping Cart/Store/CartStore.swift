@@ -14,6 +14,7 @@ class CartStore: ObservableObject {
     @Published var categories: [Category] = []
     @Published var products: [Product] = []
     @Published var cartProducts: [Product] = []
+    @Published var showPopUp: Bool = false
     
     init() {
         categories = persistenceController.fetchCategories()

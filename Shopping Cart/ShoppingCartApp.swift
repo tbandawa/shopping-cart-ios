@@ -11,7 +11,6 @@ import SwiftUI
 struct ShoppingCartApp: App {
     
     @StateObject var cartStore = CartStore()
-    //@StateObject var dataController = DataController()
     
     var body: some Scene {
         WindowGroup {

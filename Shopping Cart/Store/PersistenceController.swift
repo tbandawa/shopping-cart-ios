@@ -42,7 +42,7 @@ struct PersistenceController {
     }
     
     func fetchCart() -> [Product] {
-        var cartItems: [Cart] = fetchCart()
+        let cartItems: [Cart] = fetchCart()
         let productIds = cartItems.map{ item in
             return item.product!
         }
@@ -58,7 +58,7 @@ struct PersistenceController {
     }
     
     func deleteFromCart(product: UUID) -> [Product] {
-        var cartItems: [Cart] = fetchCart()
+        let cartItems: [Cart] = fetchCart()
         if let entityToDelete = cartItems.first(where: { $0.product == product }) {
             self.viewContext.delete(entityToDelete)
             saveContext()
