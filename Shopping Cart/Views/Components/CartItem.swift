@@ -14,7 +14,7 @@ struct CartItem: View {
     var about: String
     var image: String
     var price: Double
-    var quantity: Int
+    var quantity: Int16
     
     var body: some View {
         HStack {
@@ -62,7 +62,7 @@ struct CartItem: View {
                     .background(Color.gray.opacity(0.2))
                     .cornerRadius(50)
                     
-                    Text("0")
+                    Text("\(quantity)")
                         .font(.system(size: 16, design: .rounded))
                     
                     Button {

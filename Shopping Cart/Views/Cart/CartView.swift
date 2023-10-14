@@ -35,7 +35,7 @@ struct CartView: View {
                             about: product.about!,
                             image: product.image!,
                             price: product.price,
-                            quantity: 5
+                            quantity: product.quantity
                         )
                     }
                 }
