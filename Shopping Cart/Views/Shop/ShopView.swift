@@ -117,7 +117,7 @@ struct ShopView: View {
                 NavigationLink {
                     CartView()
                 } label: {
-                    CartButton(cartCount: cartStore.cartProducts.count)
+                    CartButton(cartCount: cartStore.countCartItems())
                 }
                 .navigationBarBackButtonHidden(true)
             }

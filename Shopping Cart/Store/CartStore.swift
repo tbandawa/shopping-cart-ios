@@ -20,6 +20,10 @@ class CartStore: ObservableObject {
         products = persistenceController.fetchProducts(category: nil)
     }
     
+    func countCartItems() -> Int {
+        return Int(cartProducts.reduce(0) { $0 + $1.quantity })
+    }
+    
     func fetchProducts(category: String? = nil) {
         products = persistenceController.fetchProducts(category: category)
     }
