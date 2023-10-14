@@ -39,12 +39,12 @@ struct CheckoutSuccess: View {
                         .padding(EdgeInsets(top: 10, leading: 10, bottom: 20, trailing: 10))
                         .foregroundColor(Color.gray)
                     
-                    Button("Continue Shopping") {
+                    Button("Continue") {
                         dismissPopup()
                     }
                     .font(.system(size: 14, weight: .bold, design: .rounded))
                     .padding(10)
-                    .frame(height: 40)
+                    .frame(width: 150, height: 40)
                     .foregroundColor(Color.white)
                     .background(Color.black)
                     .cornerRadius(40)

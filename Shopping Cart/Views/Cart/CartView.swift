@@ -104,7 +104,7 @@ struct CartView: View {
         .toolbar {
             ToolbarItem(placement: .navigationBarLeading) {
                 Button {
-                    self.presentationMode.wrappedValue.dismiss()
+                    presentationMode.wrappedValue.dismiss()
                 } label: {
                     Image(systemName: "chevron.left")
                         .foregroundColor(.black)

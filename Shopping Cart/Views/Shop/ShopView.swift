@@ -139,6 +139,8 @@ struct ShopView: View {
             CheckoutSuccess(
                 show: cartStore.showPopUp,
                 dismissPopup: { 
+                    cartStore.clearCart()
+                    cartStore.fetchCartProducts()
                     cartStore.showPopUp = false
                 }
             )

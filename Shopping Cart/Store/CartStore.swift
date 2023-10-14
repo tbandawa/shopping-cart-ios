@@ -44,4 +44,8 @@ class CartStore: ObservableObject {
     func deleteFromCart(product: UUID) {
         cartProducts = persistenceController.deleteFromCart(product: product)
     }
+    
+    func clearCart() {
+        persistenceController.clearCart()
+    }
 }

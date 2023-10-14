@@ -66,6 +66,14 @@ struct PersistenceController {
         return fetchCart()
     }
     
+    func clearCart() {
+        let cartItems: [Cart] = fetchCart()
+        for item in cartItems {
+            self.viewContext.delete(item)
+        }
+        saveContext()
+    }
+    
     func fetchProducts(category: String?) -> [Product] {
         let productsRequest: NSFetchRequest<Product> = Product.fetchRequest()
         if let category = category {
