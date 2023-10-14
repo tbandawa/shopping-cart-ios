@@ -103,7 +103,7 @@ struct ShopView: View {
                                 price: product.price
                             )
                         ){
-                            ShopItem(title: product.name!, image: product.image!, rating: product.rating, price: product.price)
+                            ShopItem(title: product.name!, image: product.image!, rating: product.rating, price: product.price, quantity: product.quantity)
                         }
                     }
                 }

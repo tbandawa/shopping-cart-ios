@@ -13,6 +13,7 @@ struct ShopItem: View {
     var image: String
     var rating: Double
     var price: Double
+    var quantity: Int16
     
     var body: some View {
         ZStack(alignment: .topTrailing) {
@@ -64,14 +65,16 @@ struct ShopItem: View {
             }
             .frame(width: 185, height: 240)
             
-            Text("+9")
-                .font(.caption2).bold()
-                .foregroundColor(.white)
-                .frame(width: 21, height: 21)
-                .background(Color(hue: 1.0, saturation: 0.89, brightness: 0.835))
-                .cornerRadius(50)
-                .padding(.top, 7)
-                .padding(.trailing, 7)
+            if (quantity > 0) {
+                Text((quantity > 9 ? "+9" : "\(quantity)"))
+                    .font(.caption2).bold()
+                    .foregroundColor(.white)
+                    .frame(width: 21, height: 21)
+                    .background(Color(hue: 1.0, saturation: 0.89, brightness: 0.835))
+                    .cornerRadius(50)
+                    .padding(.top, 7)
+                    .padding(.trailing, 7)
+            }
             
         }
         .background(.gray.opacity(0.2))
@@ -82,6 +85,6 @@ struct ShopItem: View {
 
 struct ShopItem_Previews: PreviewProvider {
     static var previews: some View {
-        ShopItem(title: "Cabbage", image: "image_product_cabbage", rating: 4.5, price: 1.00)
+        ShopItem(title: "Cabbage", image: "image_product_cabbage", rating: 4.5, price: 1.00, quantity: 9)
     }
 }

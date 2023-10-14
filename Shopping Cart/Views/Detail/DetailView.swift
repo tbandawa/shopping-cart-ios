@@ -124,7 +124,7 @@ struct DetailView: View {
                         .font(.system(size: 30, design: .rounded))
                     
                     Button {
-                        if (itemCount < 10){
+                        if (itemCount < 15){
                             itemCount+=1
                         }
                     } label: {

@@ -186,7 +186,9 @@ struct PersistenceController {
     
     // Get product quantity from cartItems
     private func addQuantity(product: Product, cart: [Cart]) -> Product {
-        product.quantity = cart.first(where: { $0.product == product.id })!.quantity
+        if let quantity = cart.first(where: { $0.product == product.id })?.quantity {
+            product.quantity = quantity
+        }
         return product
     }
     
