@@ -112,7 +112,7 @@ struct DetailView: View {
                 HStack {
                     
                     Button {
-                        if (itemCount > 1){
+                        if (itemCount > 0){
                             itemCount-=1
                         }
                     } label: {
@@ -159,7 +159,7 @@ struct DetailView: View {
                 
                 Spacer()
                 
-                Button("Add To Cart") {
+                Button(quantity > 0 ? "Update Cart" : "Add To Cart") {
                     cartStore.addToCart(product: productId, quantity: Int16(itemCount))
                 }
                 .font(.system(size: 16, weight: .bold, design: .rounded))
@@ -167,8 +167,9 @@ struct DetailView: View {
                 .padding(.top, 0.1)
                 .frame(width: 225)
                 .foregroundColor(Color.white)
-                .background(Color.black)
+                .background(itemCount == 0 ? Color.gray : Color.black)
                 .cornerRadius(50)
+                .disabled(itemCount == 0)
                     
             }
             .padding(.top, 15)
