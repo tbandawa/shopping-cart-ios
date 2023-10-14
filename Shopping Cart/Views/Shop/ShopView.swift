@@ -108,6 +108,9 @@ struct ShopView: View {
                     }
                 }
                 .padding(.top, 20)
+                .onAppear {
+                    print("LazyVGrid appeare")
+                }
                 
             }
             .navigationBarTitleDisplayMode(.inline)
@@ -116,7 +119,7 @@ struct ShopView: View {
                 NavigationLink {
                     CartView()
                 } label: {
-                    CartButton(cartCount: cartStore.itemCount)
+                    CartButton(cartCount: cartStore.cartProducts.count)
                 }
                 .navigationBarBackButtonHidden(true)
             }

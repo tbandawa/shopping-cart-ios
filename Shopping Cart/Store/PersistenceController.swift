@@ -42,14 +42,7 @@ struct PersistenceController {
     }
     
     func fetchCart() -> [Product] {
-        var cartItems: [Cart] = []
-        let cartRequest: NSFetchRequest<Cart> = Cart.fetchRequest()
-        do {
-            cartItems = try self.viewContext.fetch(cartRequest)
-        } catch {
-            print("Error fetching cartItems: \(error.localizedDescription)")
-        }
-        
+        var cartItems: [Cart] = fetchCart()
         let productIds = cartItems.map{ item in
             return item.product!
         }
@@ -61,22 +54,25 @@ struct PersistenceController {
             cartProducts = try self.viewContext.fetch(productsRequest)
         } catch {
             print("Error fetching cartProducts: \(error.localizedDescription)")
+            cartProducts = []
         }
         
         return cartProducts.map { addQuantity(product: $0, cart: cartItems) }
     }
     
     func fetchProducts(category: String?) -> [Product] {
-        let request: NSFetchRequest<Product> = Product.fetchRequest()
+        var cartProducts: [Product] = []
+        let productsRequest: NSFetchRequest<Product> = Product.fetchRequest()
         if let category = category {
-            request.predicate = NSPredicate(format: "category = '\(category)'")
+            productsRequest.predicate = NSPredicate(format: "category = '\(category)'")
         }
         do {
-            return try self.viewContext.fetch(request)
+            cartProducts = try self.viewContext.fetch(productsRequest)
         } catch {
             print("Error fetching categories: \(error.localizedDescription)")
-            return []
+            cartProducts = []
         }
+        return cartProducts.map { addQuantity(product: $0, cart: fetchCart()) }
     }
     
     func addToCart(product: UUID, quantity: Int16) {
@@ -100,6 +96,17 @@ struct PersistenceController {
             cart.product = product
             cart.quantity = quantity
             saveContext()
+        }
+    }
+    
+    // Get all cart items
+    private func fetchCart() -> [Cart] {
+        let cartRequest: NSFetchRequest<Cart> = Cart.fetchRequest()
+        do {
+            return try self.viewContext.fetch(cartRequest)
+        } catch {
+            print("Error fetching cartItems: \(error.localizedDescription)")
+            return []
         }
     }
     
@@ -177,17 +184,18 @@ struct PersistenceController {
         }
     }
     
+    // Get product quantity from cartItems
+    private func addQuantity(product: Product, cart: [Cart]) -> Product {
+        product.quantity = cart.first(where: { $0.product == product.id })!.quantity
+        return product
+    }
+    
+    // Save objects in context
     private func saveContext() {
         do {
             try self.viewContext.save()
         } catch {
             print("Failed to save data with error \(error)")
         }
-    }
-    
-    // Get product quantity from cartItems
-    private func addQuantity(product: Product, cart: [Cart]) -> Product {
-        product.quantity = cart.first(where: { $0.product == product.id })!.quantity
-        return product
     }
 }
