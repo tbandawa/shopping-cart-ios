@@ -100,7 +100,8 @@ struct ShopView: View {
                                 about: product.about!,
                                 image: product.image!,
                                 rating: product.rating,
-                                price: product.price
+                                price: product.price,
+                                quantity: product.quantity
                             )
                         ){
                             ShopItem(title: product.name!, image: product.image!, rating: product.rating, price: product.price, quantity: product.quantity)

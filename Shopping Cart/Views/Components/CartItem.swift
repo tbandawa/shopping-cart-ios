@@ -52,28 +52,8 @@ struct CartItem: View {
                 
                 HStack {
                     
-                    Button {
-                        print("Decrease button was tapped")
-                    } label: {
-                        Image(systemName: "minus")
-                            .foregroundColor(.black)
-                    }
-                    .frame(width: 20, height: 20)
-                    .background(Color.gray.opacity(0.2))
-                    .cornerRadius(50)
-                    
                     Text("\(quantity)")
                         .font(.system(size: 16, design: .rounded))
-                    
-                    Button {
-                        print("Increase button was tapped")
-                    } label: {
-                        Image(systemName: "plus")
-                            .foregroundColor(.black)
-                    }
-                    .frame(width: 20, height: 20)
-                    .background(Color.gray.opacity(0.2))
-                    .cornerRadius(50)
                     
                     Spacer()
                     

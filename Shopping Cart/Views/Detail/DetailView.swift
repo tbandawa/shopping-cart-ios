@@ -15,7 +15,8 @@ struct DetailView: View {
         about: String,
         image: String,
         rating: Double,
-        price: Double
+        price: Double,
+        quantity: Int16
     ) {
         self.productId = productId
         self.title = title
@@ -23,6 +24,7 @@ struct DetailView: View {
         self.image = image
         self.rating = rating
         self.price = price
+        self.quantity = quantity
         let appearance = UINavigationBarAppearance()
         appearance.shadowColor = .clear
         UINavigationBar.appearance().standardAppearance = appearance
@@ -35,8 +37,9 @@ struct DetailView: View {
     var image: String
     var rating: Double
     var price: Double
+    var quantity: Int16
     
-    @State var itemCount = 1
+    @State var itemCount = 0
     
     @EnvironmentObject var cartStore: CartStore
     
@@ -122,6 +125,9 @@ struct DetailView: View {
                     
                     Text("\(itemCount)")
                         .font(.system(size: 30, design: .rounded))
+                        .onAppear {
+                            itemCount = Int(quantity)
+                        }
                     
                     Button {
                         if (itemCount < 15){
@@ -194,7 +200,8 @@ struct DetailView_Previews: PreviewProvider {
             about: "Cabbage is popular in January",
             image: "image_product_cabbage",
             rating: 4.5,
-            price: 1.0
+            price: 1.0,
+            quantity: 2
         ).environmentObject(CartStore())
     }
 }
