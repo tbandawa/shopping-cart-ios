@@ -101,10 +101,16 @@ struct ShopView: View {
                                 image: product.image!,
                                 rating: product.rating,
                                 price: product.price,
-                                quantity: product.quantity
+                                quantity: Int16(cartStore.getQuantity(product: product.id!))
                             )
                         ){
-                            ShopItem(title: product.name!, image: product.image!, rating: product.rating, price: product.price, quantity: product.quantity)
+                            ShopItem(
+                                title: product.name!,
+                                image: product.image!,
+                                rating: product.rating,
+                                price: product.price,
+                                quantity: Int16(cartStore.getQuantity(product: product.id!))
+                            )
                         }
                     }
                 }
@@ -124,6 +130,7 @@ struct ShopView: View {
             .navigationViewStyle(StackNavigationViewStyle())
             .onAppear {
                 cartStore.fetchCartProducts()
+                cartStore.fetchProducts()
             }
             
         }
