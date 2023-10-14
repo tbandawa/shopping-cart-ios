@@ -64,6 +64,7 @@ struct PersistenceController {
         var cartItems: [Cart] = fetchCart()
         if let entityToDelete = cartItems.first(where: { $0.product == product }) {
             self.viewContext.delete(entityToDelete)
+            saveContext()
         }
         return fetchCart()
     }
