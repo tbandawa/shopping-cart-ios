@@ -15,6 +15,7 @@ struct CartItem: View {
     var image: String
     var price: Double
     var quantity: Int16
+    var removeFromcart: () -> Void
     
     var body: some View {
         HStack {
@@ -36,7 +37,7 @@ struct CartItem: View {
                     Spacer()
                     
                     Button {
-                        print("Remove button was tapped")
+                        removeFromcart()
                     } label: {
                         Image(systemName: "xmark")
                             .foregroundColor(.black)
@@ -78,7 +79,8 @@ struct CartItem_Previews: PreviewProvider {
             about: "Cabbage popular in January",
             image: "image_product_cabbage",
             price: 10.00,
-            quantity: 5
+            quantity: 5,
+            removeFromcart: {  }
         )
     }
 }

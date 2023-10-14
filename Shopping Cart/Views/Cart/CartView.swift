@@ -35,7 +35,10 @@ struct CartView: View {
                             about: product.about!,
                             image: product.image!,
                             price: product.price,
-                            quantity: product.quantity
+                            quantity: product.quantity,
+                            removeFromcart: {
+                                cartStore.deleteFromCart(product: product.id!)
+                            }
                         )
                     }
                 }

@@ -60,6 +60,14 @@ struct PersistenceController {
         return cartProducts.map { addQuantity(product: $0, cart: cartItems) }
     }
     
+    func deleteFromCart(product: UUID) -> [Product] {
+        var cartItems: [Cart] = fetchCart()
+        if let entityToDelete = cartItems.first(where: { $0.product == product }) {
+            self.viewContext.delete(entityToDelete)
+        }
+        return fetchCart()
+    }
+    
     func fetchProducts(category: String?) -> [Product] {
         var cartProducts: [Product] = []
         let productsRequest: NSFetchRequest<Product> = Product.fetchRequest()
