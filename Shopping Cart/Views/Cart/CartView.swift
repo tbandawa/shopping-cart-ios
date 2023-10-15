@@ -60,7 +60,7 @@ struct CartView: View {
                         HStack {
                             Text("Subtotal")
                             Spacer()
-                            Text("$100.00")
+                            Text("$\(String(format: "%.2f", cartStore.itemsCost))")
                         }
                         .font(.system(size: 14, design: .rounded))
                         .padding(.bottom, 1)
@@ -76,7 +76,7 @@ struct CartView: View {
                         HStack {
                             Text("Total")
                             Spacer()
-                            Text("$120.00")
+                            Text("$\(String(format: "%.2f", (cartStore.itemsCost + 10.0)))")
                         }
                         .font(.system(size: 16, weight: .medium, design: .rounded))
                         .padding(.bottom, 10)

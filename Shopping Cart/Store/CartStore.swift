@@ -15,6 +15,7 @@ class CartStore: ObservableObject {
     @Published var products: [Product] = []
     @Published var cartProducts: [Product] = []
     @Published var showPopUp: Bool = false
+    @Published var itemsCost: Double = 0.0
     
     init() {
         categories = persistenceController.fetchCategories()
@@ -34,7 +35,11 @@ class CartStore: ObservableObject {
     }
     
     func fetchCartProducts() {
+        itemsCost = 0
         cartProducts = persistenceController.fetchCart()
+        for product in cartProducts {
+            itemsCost += (Double(persistenceController.getQuantity(product: product.id!)) * product.price)
+        }
     }
     
     func addToCart(product: UUID, quantity: Int16) {
