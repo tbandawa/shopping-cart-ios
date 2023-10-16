@@ -24,6 +24,7 @@ struct CartView: View {
     var body: some View {
         ZStack {
             
+            // If cartProducts are not empty show cart otherwise show empty view
             if (!cartStore.cartProducts.isEmpty) {
                 // MARK: Cart View
                 VStack {

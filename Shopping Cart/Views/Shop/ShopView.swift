@@ -47,6 +47,7 @@ struct ShopView: View {
                     ScrollView(.horizontal, showsIndicators: false) {
                         HStack {
                             
+                            // First Category button for getting all products
                             Button(
                                 action: {
                                     cartStore.fetchProducts(category: nil)
@@ -119,6 +120,7 @@ struct ShopView: View {
                     .padding(.top, 20)
                     
                 }
+                // MARK: Navigation Bar
                 .navigationBarTitleDisplayMode(.inline)
                 .padding([.leading, .trailing])
                 .toolbar {
@@ -131,6 +133,7 @@ struct ShopView: View {
                 }
                 .navigationViewStyle(StackNavigationViewStyle())
                 .onAppear {
+                    // Get new updated products with additional cart data
                     cartStore.fetchCartProducts()
                     cartStore.fetchProducts()
                 }

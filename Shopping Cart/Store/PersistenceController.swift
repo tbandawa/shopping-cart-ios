@@ -31,6 +31,10 @@ struct PersistenceController {
         loadData()
     }
     
+    /// Fetch all Categories
+    ///
+    /// - Returns
+    ///     - [Category]: array of categories
     func fetchCategories() -> [Category] {
         let request: NSFetchRequest<Category> = Category.fetchRequest()
         do {
@@ -41,12 +45,17 @@ struct PersistenceController {
         }
     }
     
+    /// Fetches Cart Items and convert to [Product]
+    ///
+    /// - Returns
+    ///     - [Product]: array of products
     func fetchCart() -> [Product] {
         let cartItems: [Cart] = fetchCart()
+        // Transform Cart items into array of UUIDs
         let productIds = cartItems.map{ item in
             return item.product!
         }
-        
+        // For each UUID get Products with matching UUIDs
         let productsRequest: NSFetchRequest<Product> = Product.fetchRequest()
         productsRequest.predicate = NSPredicate(format: "id IN %@", productIds)
         do {
@@ -57,6 +66,12 @@ struct PersistenceController {
         }
     }
     
+    /// Deletes Item from Cart
+    ///
+    /// - Parameters
+    ///     - product: product UUID
+    /// - Returns
+    ///     - [Product]: array of products
     func deleteFromCart(product: UUID) -> [Product] {
         let cartItems: [Cart] = fetchCart()
         if let entityToDelete = cartItems.first(where: { $0.product == product }) {
@@ -66,6 +81,7 @@ struct PersistenceController {
         return fetchCart()
     }
     
+    /// Gets all Cart items and deletes them from context
     func clearCart() {
         let cartItems: [Cart] = fetchCart()
         for item in cartItems {
@@ -74,6 +90,12 @@ struct PersistenceController {
         saveContext()
     }
     
+    /// Retrieves products by filtering using category or return all if category == nil
+    ///
+    /// - Parameters
+    ///     - category: product category
+    /// - Returns
+    ///     - [Product]: array of products
     func fetchProducts(category: String?) -> [Product] {
         let productsRequest: NSFetchRequest<Product> = Product.fetchRequest()
         if let category = category {
@@ -87,11 +109,14 @@ struct PersistenceController {
         }
     }
     
-    // Add product to cart
+    /// Add product to cart
+    /// - Parameters
+    ///    - product: UUID for product in question
+    ///    - quantity: Item quantity
     func addToCart(product: UUID, quantity: Int16) {
         
         var savedProducts: [Cart] = []
-        
+        // Check if Product UUID already exists and update its quantity
         let request: NSFetchRequest<Cart> = Cart.fetchRequest()
         request.predicate = NSPredicate(format: "product = '\(product)'")
         do {
@@ -103,7 +128,7 @@ struct PersistenceController {
         } catch {
             print("Error fetching categories: \(error.localizedDescription)")
         }
-        
+        // If Product UUID in not found, create new
         if (savedProducts.isEmpty) {
             let cart = Cart(context: self.viewContext)
             cart.product = product
@@ -112,15 +137,23 @@ struct PersistenceController {
         }
     }
     
-    // Get product quantity from cartItems
+    /// Get product quantity from cartItems
+    ///
+    /// - Parameters
+    ///     - product: UUID for product in question
+    /// - Returns
+    ///     - Int: Product quantity in cart
     func getQuantity(product: UUID) -> Int {
+        // Find item quantity corresponding to product id within [Cart]
         if let quantity = fetchCart().first(where: { $0.product == product })?.quantity {
             return Int(quantity)
         }
         return 0
     }
     
-    // Get all cart items
+    /// Get all cart items
+    /// - Returns
+    ///     - [Cart]: Array of Cart items
     func fetchCart() -> [Cart] {
         let cartRequest: NSFetchRequest<Cart> = Cart.fetchRequest()
         do {
@@ -131,7 +164,7 @@ struct PersistenceController {
         }
     }
     
-    // Initialise Data
+    /// Initialise Data
     private func loadData() {
         if (fetchCategories().isEmpty) {
             let initialCategories: KeyValuePairs<String, String> = [
@@ -204,7 +237,7 @@ struct PersistenceController {
         }
     }
     
-    // Save objects in context
+    /// Save objects in context
     private func saveContext() {
         do {
             try self.viewContext.save()
