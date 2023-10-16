@@ -71,7 +71,6 @@
 			children = (
 				835D5E5B29C4957600015F19 /* Store */,
 				835D5E5A29C4956A00015F19 /* Resources */,
-				835D5E5629C494F500015F19 /* Models */,
 				835D5E5529C494E300015F19 /* Views */,
 				835D5E4729C4938900015F19 /* ShoppingCartApp.swift */,
 				835D5E4D29C4938A00015F19 /* Preview Content */,
@@ -97,13 +96,6 @@
 				835D5E5729C4952100015F19 /* Shop */,
 			);
 			path = Views;
-			sourceTree = "<group>";
-		};
-		835D5E5629C494F500015F19 /* Models */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Models;
 			sourceTree = "<group>";
 		};
 		835D5E5729C4952100015F19 /* Shop */ = {
